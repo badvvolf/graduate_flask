@@ -65,7 +65,12 @@
             <p class="lead">
            
             {% for line in nodefense %}
-            {{ line }} <br>
+              {% if "password" in line %}
+               <span style="color:red">{{ line}}</span>
+              {% else %}
+              {{ line }}
+              {% endif %}
+              <br>
             {% endfor %}
             </p>
         <div class="card-footer"></div>
@@ -76,10 +81,14 @@
         <div class="card h-100">
                 <h3 class="card-title text-center">Active Defense 방어</h3>
                 <p class="lead">
-                  {% for line in actdefense %}
-                  {{ line }} <br>
+                    {% for line in actdefense %}
+                    {% if "password" in line %}
+                     <span style="color:red">{{ line}}</span>
+                    {% else %}
+                    {{ line }}
+                    {% endif %}
+                    <br>
                   {% endfor %}
-                
                 </p>
             <div class="card-footer"></div>
         </div>
